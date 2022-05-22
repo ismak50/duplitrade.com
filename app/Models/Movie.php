@@ -37,4 +37,14 @@ class Movie extends Model
     {
         return $this->users()->where(['user_id' => $user->id])->count() !== 0;
     }
+
+    public function scopeActive($query) {
+        $pivot = $this->users()->getTable();
+
+        $query->whereHas('users', function ($q) use ($pivot) {
+            $q->where("{$pivot}.rented_at", '<', Carbon::now())
+                ->where("{$pivot}.rented_at", '>=', Carbon::now()->subDays(config('app.rentDaysPeriod')))
+            ;
+        });
+    }
 }

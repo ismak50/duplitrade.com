@@ -232,5 +232,5 @@ return [
 
     ],
     'rentDaysPeriod' => env('RENT_DAYS_PERIOD', 7),
-
+    'dailyActiveRentalEmail' => env('CRON_ACTIVE_RENTAL_EMAIL', 'example@google.com'),
 ];
