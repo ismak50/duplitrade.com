@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::group(['namespace' => 'App\Http\Controllers\Movies', 'as' => 'movies', 'prefix' => 'movies'], function(){
+    Route::get('/', 'MoviesController@index')->name('.index');
+    Route::get('/{movie}', 'MoviesController@show')->name('.show');
+    Route::post('/rent/{movie}', 'MoviesController@rent')->name('.rent')->middleware(['auth']);
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

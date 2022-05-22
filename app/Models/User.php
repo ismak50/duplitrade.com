@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -48,6 +49,11 @@ class User extends Authenticatable
      */
     public function movies(): BelongsToMany
     {
-        return $this->belongsToMany(Movie::class);
+        dump(Carbon::now()->timestamp);
+        return $this->belongsToMany(Movie::class)
+            ->wherePivot('rented_at', '<', Carbon::now())
+            ->WherePivot('rented_at', '>=', Carbon::now()->subDays(config('app.rentDaysPeriod')))
+            //->wherePivot('rented_at', '>=', $now->subDays(7))
+            ;
     }
 }

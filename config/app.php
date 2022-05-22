@@ -231,5 +231,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+    'rentDaysPeriod' => env('RENT_DAYS_PERIOD', 7),
 
 ];

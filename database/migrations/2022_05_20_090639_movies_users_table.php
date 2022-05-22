@@ -21,7 +21,7 @@ class MoviesUsersTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')->on('users')->cascadeOnDelete();
-            $table->dateTime('rented_at')->nullable(false);
+            $table->timestamp('rented_at')->nullable(false);
         });
 
         Schema::table('movie_user', function (Blueprint $table) {

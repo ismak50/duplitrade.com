@@ -50,6 +50,22 @@ class MovieSeeder extends Seeder
                 'image_url' => 'https://www.themoviedb.org/t/p/w1280/velWPhVMQeQKcxggNEU8YmIo52R.jpg',
                 'score' => '85',
             ],
+            [
+                'name' => 'The Good, the Bad and the Ugly',
+                'overview' => "While the Civil War rages between the Union and the Confederacy, three men – a quiet loner, a ruthless hit man and a Mexican bandit – comb
+                the American Southwest in search of a strongbox containing $200,000 in stolen gold.",
+                'release_date' => Carbon::create(1968, 9, 19)->toDateTimeString(),
+                'image_url' => 'https://www.themoviedb.org/t/p/w1280/bX2xnavhMYjWDoZp1VM6VnU1xwe.jpg',
+                'score' => '85',
+            ],
+            [
+                'name' => 'Forrest Gump',
+                'overview' => "A man with a low IQ has accomplished great things in his life and been present during significant historic events—in each case, far exceeding what anyone imagined he could do.
+                But despite all he has achieved, his one true love eludes him.",
+                'release_date' => Carbon::create(1994, 9, 30)->toDateTimeString(),
+                'image_url' => 'https://www.themoviedb.org/t/p/w1280/saHP97rTPS5eLmrLQEcANmKrsFl.jpg',
+                'score' => '85',
+            ],
         ];
 
         foreach ($movies as $movie) {
